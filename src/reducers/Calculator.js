@@ -68,6 +68,11 @@ const calculatorReducer = (
       newInput.input += action.payload;
       return newInput;
     }
+    case ("SET_INPUT_VARIABLES"): {
+      const newInputExpression = {...state};
+      newInputExpression.input = action.payload;
+      return newInputExpression;
+    }
     default:
       // Make no change if the action doesn't match
       return state;

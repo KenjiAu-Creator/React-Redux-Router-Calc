@@ -1,9 +1,19 @@
 import React from 'react';
 import Button from './Button';
+import { setInputVariable } from '../actions/Calculator';
+import {useSelector, useDispatch} from 'react-redux';
 
 const CalculatorLayout = () => {
+  const dispatch = useDispatch();
+  const inputState = useSelector(state => state.input );
   return (
     <div>
+      <input 
+        id="expressions"
+        type="number" 
+        value={inputState}
+        onChange={event => { dispatch(setInputVariable(event.target.value)) } }>
+      </input>
       <div id="row3">
       <Button text="7" />
       <Button text="8" />

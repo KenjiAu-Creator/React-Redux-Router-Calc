@@ -42,6 +42,7 @@ const addNewResult = (result, expression) => {
   };
 };
 
+// New Calculator with button actions
 const addNewInputVariable = input => {
   return {
     type: "ADD_NEW_VARIABLE",
@@ -49,4 +50,11 @@ const addNewInputVariable = input => {
   };
 };
 
-export { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation, addNewInputVariable };
+const setInputVariable = input => {
+  return {
+    type: "SET_INPUT_VARIABLES",
+    payload: input
+  };
+};
+
+export { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation, addNewInputVariable, setInputVariable };
