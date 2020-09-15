@@ -10,35 +10,36 @@
  * considered "CONSTANTS")
  */
 
- const addNewInputOne = input => {
+const addNewInputOne = input => {
   return {
     // actions return objects
     type: 'ADD_INPUT_ONE',
     payload: input
   };
- };
+};
 
- const addNewInputTwo = input => {
+const addNewInputTwo = input => {
   return {
     // actions return objects
     type: 'ADD_INPUT_TWO',
     payload: input
   };
- };
+};
 
- const addNewOperation = input => {
-   return {
-     type: 'ADD_NEW_OPERATION',
-     payload: input
-   }
- }
+const addNewOperation = input => {
+  return {
+    type: 'ADD_NEW_OPERATION',
+    payload: input
+  }
+}
 
- const addNewResult = result => {
-   return {
-     // actions return objects
-     type: "CALCULATE",
-     payload: result
-   };
- };
+const addNewResult = (result, expression) => {
+  return {
+    // actions return objects
+    type: "CALCULATE",
+    payload: result,
+    payloadTwo: expression
+  };
+};
 
- export {addNewInputOne, addNewInputTwo, addNewResult, addNewOperation};
+export { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation };

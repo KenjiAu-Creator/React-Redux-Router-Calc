@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 const ResultsList = () => {
-  const results = useSelector(state => state.result);
+  const results = useSelector(state => state.expression);
 
   // Special thanks to Zhen(Alex) Liu for showing 
   // and helping me with the useEffect function.

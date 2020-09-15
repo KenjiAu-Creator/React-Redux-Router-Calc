@@ -37,22 +37,26 @@ const Calculator = props => {
     switch (operation) {
       case "+":
         {
-          dispatch(addNewResult(addition(x, y)));
+          const z = addition( x , y);
+          dispatch(addNewResult(z, `${x} + ${y} = ${z}`) );
           break;
         }
       case "-":
         {
-          dispatch(addNewResult(subtraction(x, y)));
+          const z = subtraction( x , y )
+          dispatch(addNewResult(z ,`${x} - ${y} = ${z}` ) );
           break;
         }
       case "*":
         {
-          dispatch(addNewResult(multiplication(x, y)));
+          const z = multiplication( x , y )
+          dispatch(addNewResult( z ,`${x} * ${y} = ${z}` ) );
           break;
         }
       case "/":
         {
-          dispatch(addNewResult(division(x, y)));
+          const z = division( x , y )
+          dispatch(addNewResult( z , `${x} / ${y} = ${z}`) );
           break;
         }
       default:

@@ -11,6 +11,7 @@ const calculatorReducer = (
     inputTwo: 0,
     operator: "+",
     result: [],
+    expression: [],
     counter: 0
   },
   action) => {
@@ -43,6 +44,9 @@ const calculatorReducer = (
 
       // Add the new result.
       newResultList.result.push(action.payload);
+
+      // Add the new expression
+      newResultList.expression.push(action.payloadTwo);
 
       // Update the operation counter. React recognizes that this element has changed
       // and will cause a re-render of the page.
