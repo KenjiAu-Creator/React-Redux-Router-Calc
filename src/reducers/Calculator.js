@@ -20,7 +20,6 @@ const calculatorReducer = (
         const newInputOne = {...state};
 
         // Add the new input.
-        console.log(newInputOne);
         newInputOne.inputOne = (action.payload);
 
         // Return the update state.
