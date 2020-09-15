@@ -21,10 +21,17 @@
  const addNewInputTwo = input => {
   return {
     // actions return objects
-    type='ADD_INPUT_TWO',
+    type: 'ADD_INPUT_TWO',
     payload: input
   };
  };
+
+ const addNewOperation = input => {
+   return {
+     type: 'ADD_NEW_OPERATION',
+     payload: input
+   }
+ }
 
  const addNewResult = result => {
    return {
@@ -34,4 +41,4 @@
    };
  };
 
- export {addNewInputOne, addNewInputTwo, addNewResult};
+ export {addNewInputOne, addNewInputTwo, addNewResult, addNewOperation};

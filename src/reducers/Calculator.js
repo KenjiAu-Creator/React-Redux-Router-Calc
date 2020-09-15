@@ -7,8 +7,9 @@
 
 const calculatorReducer = (
   state = {
-    inputOne: [],
-    inputTwo: [],
+    inputOne: 0,
+    inputTwo: 0,
+    operator: "+",
     result: []
   },
   action) => {
@@ -19,7 +20,8 @@ const calculatorReducer = (
         const newInputOne = {...state};
 
         // Add the new input.
-        newInputOne.inputOne.push(action.payload);
+        console.log(newInputOne);
+        newInputOne.inputOne = (action.payload);
 
         // Return the update state.
         return newInputOne;
@@ -30,7 +32,7 @@ const calculatorReducer = (
         const newInputTwo = {...state};
 
         // Add the new input.
-        newInputTwo.inputTwo.push(action.payload);
+        newInputTwo.inputTwo = (action.payload);
         
         // Return the update state.
         return newInputTwo;
@@ -44,6 +46,11 @@ const calculatorReducer = (
 
       // Return the updated state (overwrites the state.)
       return newResultList;
+    }
+    case ("ADD_NEW_OPERATION"): {
+      const newOperation = {...state};
+      newOperation.operator = action.payload;
+      return newOperation;
     }
     default:
       // Make no change if the action doesn't match

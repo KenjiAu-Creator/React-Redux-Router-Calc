@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation } from '../actions/Calculator';
 
 const Calculator = props => {
   // State initialization
-
-  // Create Numbers array
-  let numbersArray = userInput.split(/[+-/\\*\\]/);
-  // Create operations array
-  let operationsArray = userInput.split(/[0123456789]/);
+  const inputOne = useSelector(state => state.inputOne)
+  const inputTwo = useSelector(state => state.inputTwo)
+  const result = useSelector(state => state.result)
+  const dispatch = useDispatch();
 
   // Arithmetic functions
   const addition = (x, y) => {
@@ -30,78 +30,55 @@ const Calculator = props => {
   const calculate = (event) => {
     // Prevent the page from reloading when we run the calculate function
     event.preventDefault();
+    const x = parseInt(inputOne);
+    const y = parseInt(inputTwo);
+    const operation = "+";
 
-    while (operationsArray.length >= 1) {
-      // Check for multiplication first
-      let multiIndex = operationsArray.indexOf("*");
-      while (multiIndex >= 0) {
-        const ans = multiplication(Number(numbersArray[multiIndex]), Number(numbersArray[multiIndex + 1]));
-        // Removing the operation from the operation array.
-        operationsArray.splice(multiIndex, 1);
-
-        // Removing the two numbers used in the operation and replacing with the result.
-        numbersArray.splice(multiIndex, 2, ans);
-
-        // Check to see if anymore multiplication
-        multiIndex = operationsArray.indexOf("*");
-      };
-
-      // Check for division next
-      let divideIndex = operationsArray.indexOf("/");
-      while (divideIndex >= 0) {
-        const ans = division(Number(numbersArray[divideIndex]), Number(numbersArray[divideIndex + 1]));
-        // Removing the operation from the operation array.
-        operationsArray.splice(divideIndex, 1);
-
-        // Removing the two numbers used in the operation and replacing with the result.
-        numbersArray.splice(divideIndex, 2, ans);
-
-        // Check to see if anymore division.
-        divideIndex = operationsArray.indexOf("/");
-      };
-
-      // Check for addition
-      let addIndex = operationsArray.indexOf("+");
-      while (addIndex >= 0) {
-        const ans = addition(Number(numbersArray[addIndex]), Number(numbersArray[addIndex + 1]));
-        // Removing the operation from the operation array.
-        operationsArray.splice(addIndex, 1);
-
-        // Removing the two numbers used in the operation and replacing with the result.
-        numbersArray.splice(addIndex, 2, ans);
-
-        // Check to see if anymore division.
-        addIndex = operationsArray.indexOf("+");
-      };
-
-      // Check for subtraction
-      let subIndex = operationsArray.indexOf("-");
-      while (subIndex >= 0) {
-        const ans = subtraction(Number(numbersArray[subIndex]), Number(numbersArray[subIndex + 1]));
-        // Removing the operation from the operation array.
-        operationsArray.splice(subIndex, 1);
-
-        // Removing the two numbers used in the operation and replacing with the result.
-        numbersArray.splice(subIndex, 2, ans);
-
-        // Check to see if anymore division.
-        subIndex = operationsArray.indexOf("-");
-      };
+    // Set / overwrite the state of the result
+    switch (operation) {
+      case "+":
+        {
+          dispatch(addNewResult(addition(x, y)));
+          break;
+        }
+      case "-":
+        {
+          dispatch(addNewResult(subtraction(x, y)));
+          break;
+        }
+      case "*":
+        {
+          dispatch(addNewResult(multiplication(x, y)));
+          break;
+        }
+      case "/":
+        {
+          dispatch(addNewResult(division(x, y)));
+          break;
+        }
+      default:
+        return 0;
     };
   };
 
   // Return JSX
   return (
     <div>
-      <h1 className="title">Single Input Field Calculator</h1>
+      <h1 className="title">Welcome to my Calculator</h1>
       <form onSubmit={calculate}>
-        <label htmlFor="input">Expression:</label>
-        <input type="text" id="input" onChange={e => { setUserInput(e.target.value) }}></input>
+        <label htmlFor="input-1">Input 1:</label>
+        <input type="number" id="input-1" onChange={e => { addNewInputOne(e.target.value) }}></input>
+        <label htmlFor="operations">Operation:</label>
+        <select onChange={e => { addNewOperation(e.target.value) }} id="operations">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option></select>
+        <label htmlFor="input-2">Input 2:</label>
+        <input type="number" id="input-2" onChange={e => { addNewInputTwo(e.target.value) }}></input>
         <input id="bttn" type="submit" value="calculate" />
       </form>
       <h1>Result: {result}</h1>
-      <p>{userInput} Input</p>
-      <p>{numbersArray} Number</p>
     </div>
   )
 };
