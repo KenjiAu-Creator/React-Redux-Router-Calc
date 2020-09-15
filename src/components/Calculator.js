@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 
 const Calculator = props => {
   // State initialization
-  const [inputOne, setInputOne] = useState(0);
-  const [inputTwo, setInputTwo] = useState(0);
 
   // Create Numbers array
   let numbersArray = userInput.split(/[+-/\\*\\]/);
@@ -90,14 +88,21 @@ const Calculator = props => {
         subIndex = operationsArray.indexOf("-");
       };
     };
-
-    // Set the result state to the only number left (the result).
-    setResult(numbersArray);
   };
 
   // Return JSX
   return (
-
+    <div>
+      <h1 className="title">Single Input Field Calculator</h1>
+      <form onSubmit={calculate}>
+        <label htmlFor="input">Expression:</label>
+        <input type="text" id="input" onChange={e => { setUserInput(e.target.value) }}></input>
+        <input id="bttn" type="submit" value="calculate" />
+      </form>
+      <h1>Result: {result}</h1>
+      <p>{userInput} Input</p>
+      <p>{numbersArray} Number</p>
+    </div>
   )
 };
 

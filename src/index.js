@@ -4,6 +4,7 @@ import './index.css';
 import { createStore } from 'redux';
 import calculatorReducer from './reducers/Calculator';
 import { Provider } from 'react-redux';
+import Calculator from './components/Calculator';
 
 // STORE
 const calculatorStore = createStore(
@@ -13,7 +14,7 @@ const calculatorStore = createStore(
 
 ReactDOM.render(
   <Provider store={calculatorStore}>
-    <></>
+    <Calculator />
   </Provider>,
   document.getElementById('root')
 );
