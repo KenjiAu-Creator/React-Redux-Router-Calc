@@ -10,7 +10,8 @@ const calculatorReducer = (
     inputOne: 0,
     inputTwo: 0,
     operator: "+",
-    result: []
+    result: [],
+    counter: 0
   },
   action) => {
   switch (action.type) {
@@ -42,6 +43,12 @@ const calculatorReducer = (
 
       // Add the new result.
       newResultList.result.push(action.payload);
+
+      // Update the operation counter. React recognizes that this element has changed
+      // and will cause a re-render of the page.
+      // React will not detect a change if we simply add or remove from the result list.
+      // -> No re-render
+      newResultList.counter++;
 
       // Return the updated state (overwrites the state.)
       return newResultList;

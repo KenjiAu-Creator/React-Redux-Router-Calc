@@ -4,10 +4,9 @@ import { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation } from '.
 
 const Calculator = props => {
   // State initialization
-  const inputOne = useSelector(state => state.inputOne)
-  const inputTwo = useSelector(state => state.inputTwo)
-  const operation = useSelector(state => state.operator)
-  const result = useSelector(state => state.result)
+  const inputOne = useSelector(state => state.inputOne);
+  const inputTwo = useSelector(state => state.inputTwo);
+  const operation = useSelector(state => state.operator);
   const dispatch = useDispatch();
 
   // Arithmetic functions
@@ -60,7 +59,7 @@ const Calculator = props => {
         return 0;
     };
   };
-
+  
   // Return JSX
   return (
     <div>
@@ -78,10 +77,6 @@ const Calculator = props => {
         <input type="number" id="input-2" onChange={e => { dispatch(addNewInputTwo(e.target.value)) }}></input>
         <input id="bttn" type="submit" value="calculate" />
       </form>
-      <h1>Results:</h1>
-      <ul>
-        {result.map( number => <li>{number}</li>)}
-      </ul>
     </div>
   )
 };
