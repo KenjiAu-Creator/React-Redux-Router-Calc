@@ -10,11 +10,11 @@
  * considered "CONSTANTS")
  */
 
- const addNewResult = expression => {
+ const addNewResult = result => {
    return {
      // actions return objects
      type: "calculate",
-     payload: expression
+     payload: result
    };
  };
 
