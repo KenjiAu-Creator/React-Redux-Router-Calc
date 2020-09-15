@@ -47,7 +47,7 @@ const calculatorReducer = (
       // Update the operation counter. React recognizes that this element has changed
       // and will cause a re-render of the page.
       // React will not detect a change if we simply add or remove from the result list.
-      // -> No re-render
+      // -> No re-render of the page.
       newResultList.counter++;
 
       // Return the updated state (overwrites the state.)
