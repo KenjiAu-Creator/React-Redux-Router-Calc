@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import { setInputVariable } from '../actions/Calculator';
+import CalcButton from '../components/CalculatorSingleInput';
 import {useSelector, useDispatch} from 'react-redux';
 
 const CalculatorLayout = () => {
@@ -39,7 +40,7 @@ const CalculatorLayout = () => {
       <Button text="0" />
       <Button text="." />
       <Button text="Ans" />
-      <Button text="=" />
+      <CalcButton text="=" />
       </div>
     </div>
   );
