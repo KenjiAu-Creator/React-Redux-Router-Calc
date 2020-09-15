@@ -7,6 +7,7 @@
 
 const calculatorReducer = (
   state = {
+    input: "",
     inputOne: 0,
     inputTwo: 0,
     operator: "+",
@@ -61,6 +62,11 @@ const calculatorReducer = (
       const newOperation = {...state};
       newOperation.operator = action.payload;
       return newOperation;
+    }
+    case ("ADD_NEW_VARIABLE"): {
+      const newInput = {...state};
+      newInput.input += action.payload;
+      return newInput;
     }
     default:
       // Make no change if the action doesn't match

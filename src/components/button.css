@@ -1,0 +1,14 @@
+button {
+  -webkit-appearance: button;
+  height: 40px;
+  width: 50px;
+  border: none;
+  background-color: #efefef;
+  color: #797979;
+  font-size: 15px;
+  border-radius: 5px;
+  text-transform: none;
+  display: inline;
+  margin: 10px;
+}
+

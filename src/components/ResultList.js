@@ -14,7 +14,7 @@ const ResultsList = () => {
 
   return (
     <div>
-      <h1>Results:</h1>
+      <h1>Previous Results:</h1>
       <ul>
         {results.map((result, index) => {
           return (

@@ -42,4 +42,11 @@ const addNewResult = (result, expression) => {
   };
 };
 
-export { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation };
+const addNewInputVariable = input => {
+  return {
+    type: "ADD_NEW_VARIABLE",
+    payload: input
+  };
+};
+
+export { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation, addNewInputVariable };
