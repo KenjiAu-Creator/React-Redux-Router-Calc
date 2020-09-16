@@ -7,19 +7,27 @@ import { Provider } from 'react-redux';
 import Calculator from './components/Calculator';
 import ResultsList from './components/ResultList';
 import CalculatorLayout from './components/CalcLayout';
-import './components/button.css'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // STORE
 const calculatorStore = createStore(
   calculatorReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-); 
+);
 
 ReactDOM.render(
   <Provider store={calculatorStore}>
-    <Calculator />
-    <ResultsList />
-    <CalculatorLayout />
+    <Router>
+      <Route path="/" exact>
+        <Calculator />
+      </Route>
+      <Route path="/results" exact>
+        <ResultsList />
+      </Route>
+      <Route path="/singleCalc" exact>
+        <CalculatorLayout />
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

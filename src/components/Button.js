@@ -1,4 +1,5 @@
 import React from 'react';
+import './components/button.css'
 import { useDispatch } from 'react-redux';
 import { addNewInputVariable } from '../actions/Calculator';
 
