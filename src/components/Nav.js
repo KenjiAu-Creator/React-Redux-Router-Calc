@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Nav.css';
 
 function Nav() {
   return (
     <nav>
       <h2>Calculator Navigation</h2>
       <ul>
-        <li>
-          <Link to="/">Double Input Calculator</Link>
+        <li className="nav-links">
+          <Link to="/">Double Input Calc</Link>
         </li>
-        <li>
-        <Link to="/results">Past Calculations and Results</Link>
+        <li className="nav-links">
+        <Link to="/results">Results</Link>
         </li>
-        <li>
-        <Link to="/singleCalc">Single Expression Calculator</Link>
+        <li className="nav-links">
+        <Link to="/singleCalc">Interactive Calc</Link>
         </li>
       </ul>
     </nav>

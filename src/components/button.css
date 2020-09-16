@@ -1,11 +1,11 @@
 button {
   -webkit-appearance: button;
-  height: 40px;
-  width: 50px;
+  height: 80px;
+  width: 100px;
   border: none;
   background-color: #efefef;
   color: #797979;
-  font-size: 15px;
+  font-size: 30px;
   border-radius: 5px;
   text-transform: none;
   display: inline;
@@ -13,5 +13,24 @@ button {
 }
 
 #calculatebttn {
-  width: 110px;
+  width: 210px;
+}
+
+@media screen and (min-width: 600px) {
+  button {
+    -webkit-appearance: button;
+    height: 40px;
+    width: 50px;
+    border: none;
+    background-color: #efefef;
+    color: #797979;
+    font-size: 15px;
+    border-radius: 5px;
+    text-transform: none;
+    display: inline;
+    margin: 5px;
+  }
+  #calculatebttn {
+    width: 110px;
+  }
 }

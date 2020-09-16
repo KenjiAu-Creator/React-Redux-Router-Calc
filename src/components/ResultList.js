@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import './ResultList.css';
 
 const ResultsList = () => {
   const results = useSelector(state => state.expression);
@@ -18,7 +19,7 @@ const ResultsList = () => {
       <ul>
         {results.map((result, index) => {
           return (
-            <li key={index}>{result}</li>
+            <li className="resultExpressions" key={index}>{result}</li>
           )
         })}
       </ul>
