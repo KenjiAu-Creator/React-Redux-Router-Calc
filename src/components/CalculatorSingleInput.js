@@ -5,12 +5,12 @@ import { addNewResult } from '../actions/Calculator';
 const CalculatorSingleInput = props => {
   //State initialization.
   const text = props.text;
-  const userInput = useSelector( state => state.input );
+  const userInput = useSelector(state => state.input);
   const dispatch = useDispatch();
 
   // First create an array with only the numbers we need to work with.
   let numbersArray = userInput.split(/[+-/\\*\\]/);
-  
+
   // Create an array with just the operations we are working with.
   let operationsArray = userInput.split(/[0123456789]/);
 
@@ -48,10 +48,10 @@ const CalculatorSingleInput = props => {
       while (multiIndex >= 0) {
         const ans = multiplication(Number(numbersArray[multiIndex]), Number(numbersArray[multiIndex + 1]));
         // Removing the operation from the operation array.
-        operationsArrayTrimmed.splice(multiIndex,1);
+        operationsArrayTrimmed.splice(multiIndex, 1);
 
         // Removing the two numbers used in the operation and replacing with the result.
-        numbersArray.splice(multiIndex,2,ans);
+        numbersArray.splice(multiIndex, 2, ans);
 
         // Check to see if anymore multiplication
         multiIndex = operationsArrayTrimmed.indexOf("*");
@@ -62,55 +62,53 @@ const CalculatorSingleInput = props => {
       while (divideIndex >= 0) {
         const ans = division(Number(numbersArray[divideIndex]), Number(numbersArray[divideIndex + 1]));
         // Removing the operation from the operation array.
-        operationsArrayTrimmed.splice(divideIndex,1);
+        operationsArrayTrimmed.splice(divideIndex, 1);
 
         // Removing the two numbers used in the operation and replacing with the result.
-        numbersArray.splice(divideIndex,2,ans);
-        
+        numbersArray.splice(divideIndex, 2, ans);
+
         // Check to see if anymore division.
         divideIndex = operationsArrayTrimmed.indexOf("/");
-      }; 
+      };
 
       // Check for addition
       let addIndex = operationsArrayTrimmed.indexOf("+");
       while (addIndex >= 0) {
         const ans = addition(Number(numbersArray[addIndex]), Number(numbersArray[addIndex + 1]));
         // Removing the operation from the operation array.
-        operationsArrayTrimmed.splice(addIndex,1);
+        operationsArrayTrimmed.splice(addIndex, 1);
 
         // Removing the two numbers used in the operation and replacing with the result.
-        numbersArray.splice(addIndex,2,ans);
-        
+        numbersArray.splice(addIndex, 2, ans);
+
         // Check to see if anymore addition.
         console.log(numbersArray);
         addIndex = operationsArrayTrimmed.indexOf("+");
-      }; 
+      };
 
       // Check for subtraction
       let subIndex = operationsArrayTrimmed.indexOf("-");
       while (subIndex >= 0) {
         const ans = subtraction(Number(numbersArray[subIndex]), Number(numbersArray[subIndex + 1]));
         // Removing the operation from the operation array.
-        operationsArrayTrimmed.splice(subIndex,1);
+        operationsArrayTrimmed.splice(subIndex, 1);
 
         // Removing the two numbers used in the operation and replacing with the result.
         numbersArray.splice(subIndex, 2, ans);
-        
+
         // Check to see if anymore division.
         subIndex = operationsArrayTrimmed.indexOf("-");
       };
     };
-    
+
     // Set the result state to the only number left (the result).
-    dispatch(addNewResult(numbersArray[0], `${userInput} = ${numbersArray[0]}`) );
+    dispatch(addNewResult(numbersArray[0], `${userInput} = ${numbersArray[0]}`));
   };
 
   return (
-    <div>
-      <button onClick={calculate}>
-        {text}
-      </button>
-    </div>
+    <button id="calculatebttn" onClick={calculate}>
+      {text}
+    </button>
   );
 };
 
