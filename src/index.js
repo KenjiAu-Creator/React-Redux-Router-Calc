@@ -8,6 +8,7 @@ import Calculator from './components/Calculator';
 import ResultsList from './components/ResultList';
 import CalculatorLayout from './components/CalcLayout';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Nav from './components/Nav';
 
 // STORE
 const calculatorStore = createStore(
@@ -18,6 +19,7 @@ const calculatorStore = createStore(
 ReactDOM.render(
   <Provider store={calculatorStore}>
     <Router>
+      <Nav />
       <Route path="/" exact>
         <Calculator />
       </Route>
