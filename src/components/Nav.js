@@ -10,7 +10,7 @@ function Nav() {
           <Link to="/">Double Input Calculator</Link>
         </li>
         <li>
-        <Link to="/results">Calculator Results</Link>
+        <Link to="/results">Past Calculations and Results</Link>
         </li>
         <li>
         <Link to="/singleCalc">Single Expression Calculator</Link>

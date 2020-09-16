@@ -68,6 +68,7 @@ const Calculator = props => {
   return (
     <div>
       <h1 className="title">Welcome to my Calculator</h1>
+      <h3>Head to the Past Calculations and Results page to see the results!</h3>
       <form onSubmit={calculate}>
         <label htmlFor="input-1">Input 1:</label>
         <input type="number" id="input-1" onChange={e => { dispatch(addNewInputOne(e.target.value)) }}></input>
