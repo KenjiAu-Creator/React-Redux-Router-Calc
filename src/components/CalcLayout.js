@@ -5,6 +5,7 @@ import CalcButton from '../components/CalculatorSingleInput';
 import {useSelector, useDispatch} from 'react-redux';
 import Clear from './Clear';
 import Ans from './Ans';
+import Delete from './Delete';
 
 const CalculatorLayout = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const CalculatorLayout = () => {
       <Button text="1" />
       <Button text="2" />
       <Button text="3" />
-      <Button text="Del" />
+      <Delete text="Del" />
       <Clear text="Clear" />
       </div>
       <div id="row0">
