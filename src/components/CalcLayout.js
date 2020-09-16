@@ -7,6 +7,11 @@ import {useSelector, useDispatch} from 'react-redux';
 const CalculatorLayout = () => {
   const dispatch = useDispatch();
   const inputState = useSelector(state => state.input );
+
+  // Currently need to code in clear function.
+  // currently need to code in delete function.
+  // currently need to code in ans function.
+  
   return (
     <div>
       <input 

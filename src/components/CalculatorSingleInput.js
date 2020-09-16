@@ -12,7 +12,7 @@ const CalculatorSingleInput = props => {
   let numbersArray = userInput.split(/[+-/\\*\\]/);
   
   // Create an array with just the operations we are working with.
-  let operationsArray = userInput.split(/[1234567890]/);
+  let operationsArray = userInput.split(/[0123456789]/);
 
   // Remove the empty cell at the end.
   operationsArray = operationsArray.slice(1, operationsArray.length - 1);
@@ -39,7 +39,7 @@ const CalculatorSingleInput = props => {
     // Prevent the page from reloading when we run the calculate function
     event.preventDefault();
 
-    while (operationsArray.length >= 1) {
+    while (operationsArray.length >= 1 && operationsArray[0] != "") {
       // Check for multiplication first
       let multiIndex = operationsArray.indexOf("*");
       while (multiIndex >= 0) {
@@ -71,6 +71,7 @@ const CalculatorSingleInput = props => {
       // Check for addition
       let addIndex = operationsArray.indexOf("+");
       while (addIndex >= 0) {
+        console.log(numbersArray);
         const ans = addition(Number(numbersArray[addIndex]), Number(numbersArray[addIndex + 1]));
         // Removing the operation from the operation array.
         operationsArray.splice(addIndex,1);
@@ -80,6 +81,8 @@ const CalculatorSingleInput = props => {
         
         // Check to see if anymore division.
         addIndex = operationsArray.indexOf("+");
+        console.log(addIndex);
+        console.log(operationsArray);
       }; 
 
       // Check for subtraction
@@ -94,7 +97,8 @@ const CalculatorSingleInput = props => {
         
         // Check to see if anymore division.
         subIndex = operationsArray.indexOf("-");
-      }; 
+      };
+      console.log(operationsArray.length);
     };
     
     // Set the result state to the only number left (the result).
