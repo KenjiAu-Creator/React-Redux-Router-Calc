@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addNewInputVariable } from '../actions/Calculator';
 
+
 const Button = props => {
   // Set the button to be the prop we pass into the component
   const text = props.text;
@@ -15,9 +16,11 @@ const Button = props => {
 
   // Output the button
   return (
+    <>
       <button onClick={addInputVariable}>
         {text}
       </button>
+    </>
   );
 };
 

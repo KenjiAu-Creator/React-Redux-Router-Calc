@@ -71,7 +71,6 @@ const CalculatorSingleInput = props => {
       // Check for addition
       let addIndex = operationsArray.indexOf("+");
       while (addIndex >= 0) {
-        console.log(numbersArray);
         const ans = addition(Number(numbersArray[addIndex]), Number(numbersArray[addIndex + 1]));
         // Removing the operation from the operation array.
         operationsArray.splice(addIndex,1);
@@ -81,8 +80,6 @@ const CalculatorSingleInput = props => {
         
         // Check to see if anymore division.
         addIndex = operationsArray.indexOf("+");
-        console.log(addIndex);
-        console.log(operationsArray);
       }; 
 
       // Check for subtraction
@@ -93,12 +90,11 @@ const CalculatorSingleInput = props => {
         operationsArray.splice(subIndex,1);
 
         // Removing the two numbers used in the operation and replacing with the result.
-        numbersArray.splice(subIndex,2,ans);
+        numbersArray.splice(subIndex, 2, ans);
         
         // Check to see if anymore division.
         subIndex = operationsArray.indexOf("-");
       };
-      console.log(operationsArray.length);
     };
     
     // Set the result state to the only number left (the result).

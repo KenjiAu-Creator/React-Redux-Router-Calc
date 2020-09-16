@@ -73,6 +73,12 @@ const calculatorReducer = (
       newInputExpression.input = action.payload;
       return newInputExpression;
     }
+    case ("DELETE_INPUT_VARIABLE"): {
+      const newInputExpression = {...state};
+      newInputExpression.input.slice(0, (newInputExpression.input.length-2));
+      console.log(newInputExpression.input);
+      return newInputExpression;
+    }
     default:
       // Make no change if the action doesn't match
       return state;

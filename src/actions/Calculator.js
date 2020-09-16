@@ -57,4 +57,10 @@ const setInputVariable = input => {
   };
 };
 
-export { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation, addNewInputVariable, setInputVariable };
+const deleteInputVariable = () => {
+  return {
+    type: "DELETE_INPUT_VARIABLE",
+  }
+}
+
+export { addNewInputOne, addNewInputTwo, addNewResult, addNewOperation, addNewInputVariable, setInputVariable, deleteInputVariable };
