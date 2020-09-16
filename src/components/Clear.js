@@ -7,6 +7,7 @@ const Clear = (props) => {
   const dispatch = useDispatch();
 
   const ClearInput = () => {
+    // Set the global input to be blank
     dispatch(setInputVariable(""));
   };
 
