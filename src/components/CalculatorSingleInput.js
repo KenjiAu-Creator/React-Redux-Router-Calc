@@ -39,61 +39,65 @@ const CalculatorSingleInput = props => {
     // Prevent the page from reloading when we run the calculate function
     event.preventDefault();
 
-    while (operationsArray.length >= 1 && operationsArray[0] != "") {
+    // Remove the "" cells inside the operations array
+    let operationsArrayTrimmed = operationsArray.join("").trim().split("");
+
+    while (operationsArrayTrimmed.length >= 1 && operationsArrayTrimmed[0] !== "") {
       // Check for multiplication first
-      let multiIndex = operationsArray.indexOf("*");
+      let multiIndex = operationsArrayTrimmed.indexOf("*");
       while (multiIndex >= 0) {
         const ans = multiplication(Number(numbersArray[multiIndex]), Number(numbersArray[multiIndex + 1]));
         // Removing the operation from the operation array.
-        operationsArray.splice(multiIndex,1);
+        operationsArrayTrimmed.splice(multiIndex,1);
 
         // Removing the two numbers used in the operation and replacing with the result.
         numbersArray.splice(multiIndex,2,ans);
 
         // Check to see if anymore multiplication
-        multiIndex = operationsArray.indexOf("*");
+        multiIndex = operationsArrayTrimmed.indexOf("*");
       };
 
       // Check for division next
-      let divideIndex = operationsArray.indexOf("/");
+      let divideIndex = operationsArrayTrimmed.indexOf("/");
       while (divideIndex >= 0) {
         const ans = division(Number(numbersArray[divideIndex]), Number(numbersArray[divideIndex + 1]));
         // Removing the operation from the operation array.
-        operationsArray.splice(divideIndex,1);
+        operationsArrayTrimmed.splice(divideIndex,1);
 
         // Removing the two numbers used in the operation and replacing with the result.
         numbersArray.splice(divideIndex,2,ans);
         
         // Check to see if anymore division.
-        divideIndex = operationsArray.indexOf("/");
+        divideIndex = operationsArrayTrimmed.indexOf("/");
       }; 
 
       // Check for addition
-      let addIndex = operationsArray.indexOf("+");
+      let addIndex = operationsArrayTrimmed.indexOf("+");
       while (addIndex >= 0) {
         const ans = addition(Number(numbersArray[addIndex]), Number(numbersArray[addIndex + 1]));
         // Removing the operation from the operation array.
-        operationsArray.splice(addIndex,1);
+        operationsArrayTrimmed.splice(addIndex,1);
 
         // Removing the two numbers used in the operation and replacing with the result.
         numbersArray.splice(addIndex,2,ans);
         
-        // Check to see if anymore division.
-        addIndex = operationsArray.indexOf("+");
+        // Check to see if anymore addition.
+        console.log(numbersArray);
+        addIndex = operationsArrayTrimmed.indexOf("+");
       }; 
 
       // Check for subtraction
-      let subIndex = operationsArray.indexOf("-");
+      let subIndex = operationsArrayTrimmed.indexOf("-");
       while (subIndex >= 0) {
         const ans = subtraction(Number(numbersArray[subIndex]), Number(numbersArray[subIndex + 1]));
         // Removing the operation from the operation array.
-        operationsArray.splice(subIndex,1);
+        operationsArrayTrimmed.splice(subIndex,1);
 
         // Removing the two numbers used in the operation and replacing with the result.
         numbersArray.splice(subIndex, 2, ans);
         
         // Check to see if anymore division.
-        subIndex = operationsArray.indexOf("-");
+        subIndex = operationsArrayTrimmed.indexOf("-");
       };
     };
     
