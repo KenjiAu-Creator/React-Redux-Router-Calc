@@ -1,3 +1,38 @@
+# React Redux Router Practice - Calculator
+This practice is apart of the TECHCareers Software Developer program.
+
+The practice details can be found at: https://docs.google.com/document/d/1QmZ1MBTZ0J0Ki9aC9oij8WCtm0C72yQGfu_-k1ZoIE8/edit
+
+## Requirements
+From “React Practice - Calculator with Prop” 
+  * Use “npx create-react-app” to start a new React project.
+  * Create a “Calculator” component.
+  * Use a prop to output a unique heading for the component.
+  * Include two input fields that can take in numeric values, in your component return.
+  * Create a select (drop down box) which allows the user to choose what operation to apply to the two numeric fields, in your component return.
+  * Your operations must include addition, subtraction, multiplication, and division.
+From “React Assignment - Calculator”
+  * Use state to keep track of the entered input values and current select value.
+  * Output to the user the result of the calculation onSubmit or onClick.
+From “React-Redux Assignment - Calculator”
+  * Store and output a list of prior calculations the user has done in and from React-Redux store.
+  Hint: Consider starting with the Redux Action / Reducer / Store for this assignment so that you’ll know how you’ll be interacting with your data throughout the project.
+New for “React-Redux-Router Practice - Calculator”
+  * Use React Router to have a page for the calculator and a page for prior calculations (via Routes.)
+
+Challenges
+  * Protect data input - return a message to the user if the user inputs a non-numeric character / request.
+  * Have a single input field which can read the operations.
+  * Have the output list display in a different component than the Calculator component, illustrating one of the strengths of Redux as a global state management tool.
+  * Add a “light / dark mode” feature that is kept track of using a Redux store.
+  Hint: Look into the combineReducers() function afforded by Redux for managing multiple “states”.
+New for “React-Redux-Router Practice - Calculator”
+  * Make it look nice with some CSS!
+  * Add a real “home” page with some information about your assignment.
+  Hint: Maybe some content describing how you built the calculator, and things you learned along the way! Try generating some basic instructions on how to use your calculator, and what competencies it demonstrates. This could make a nice portfolio piece if you take the time!
+
+My Trello board can be found at: https://trello.com/b/M65eDzEf/react-redux-calculator
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
